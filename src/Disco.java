@@ -49,4 +49,22 @@ public class Disco {
     public String getParticipacoes(){
         return this.participacoes;
     }
+
+    public String lerFaixa(Integer faixa){
+        String dados = "";
+        for (int i = 1; i <= faixa; i++){
+            dados = "lendo "+i;
+        }
+        return dados;
+    }
+
+    public String lerInformacoesDisco(){
+        return "Nome do disco: "+this.nome+
+                ", Autor: "+this.autor+
+                ", genero: "+this.genero+
+                ", Ano de Lancamento: "+this.anoLancamento+
+                ", Numero de faixas: "+this.numeroFaixas+
+                ", subtitulo: "+this.subtitulo+
+                " "+((this.participacoes != null)?"participações: "+this.participacoes: "");
+    }
 }
