@@ -134,4 +134,21 @@ public class ReprodutorDisco {
     public String getMarca() {
         return marca;
     }
+
+    public String getInformacoes(){
+        String informacoes = "informações do reprodutor:"+
+                "\n\tModelo: "+getModelo()+
+                "\n\tMarca: "+getMarca()+
+                "\n\tBandeija: ";
+        int i = 1;
+        for (Disco disco : bandeija){
+            if (disco != null){
+                informacoes +="\n\t\tEspaço "+i+": "+disco.getNome();
+            }else{
+                informacoes +="\n\t\tEspaço "+i+": vazio";
+            }
+            i++;
+        }
+        return informacoes;
+    }
 }
