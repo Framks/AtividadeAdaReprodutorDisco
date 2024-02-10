@@ -51,20 +51,20 @@ public class Disco {
     }
 
     public String lerFaixa(Integer faixa){
-        String dados = "";
-        for (int i = 1; i <= faixa; i++){
-            dados = "lendo "+i;
-        }
-        return dados;
+       if (faixa <= this.numeroFaixas){
+           return "Lendo faixa "+faixa;
+       }else{
+           return "error ao ler faixa "+faixa;
+       }
     }
 
-    public String lerInformacoesDisco(){
-        return "Nome do disco: "+this.nome+
-                ", Autor: "+this.autor+
-                ", genero: "+this.genero+
-                ", Ano de Lancamento: "+this.anoLancamento+
-                ", Numero de faixas: "+this.numeroFaixas+
-                ", subtitulo: "+this.subtitulo+
-                " "+((this.participacoes != null)?"participações: "+this.participacoes: "");
+    public String getInformacoesDisco(){
+        return "Disco: "+this.nome+
+                "\n\tAutor: "+this.autor+
+                "\n\tgenero: "+this.genero+
+                "\n\tAno de Lancamento: "+this.anoLancamento+
+                "\n\tNumero de faixas: "+this.numeroFaixas+
+                "\n\tsubtitulo: "+this.subtitulo+
+                "\n\t"+((this.participacoes != null)?"participações: "+this.participacoes+"\n": "");
     }
 }
