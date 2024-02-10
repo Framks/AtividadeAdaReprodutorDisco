@@ -7,6 +7,7 @@ public class ReprodutorDisco {
     private Boolean ligado;
     private Integer lengthDiscoBandeija;
     private Integer discoSelecionado;
+    private Integer faixaAtual;
     private Boolean pausa;
 
     public ReprodutorDisco(String modelo, String marca){
@@ -99,8 +100,9 @@ public class ReprodutorDisco {
 
     public Boolean selecionarDisco(Integer indexDisco){
         if (ligado) {
-            if (bandeija[indexDisco - 1] != null) {
+            if (bandeija[indexDisco] != null) {
                 this.discoSelecionado = indexDisco;
+                this.faixaAtual = 1;
                 return true;
             } else {
                 return false;
@@ -111,13 +113,18 @@ public class ReprodutorDisco {
     }
 
     public void avancar(){
-        if (ligado)
-            System.out.println("proxima musica");
+        if (ligado){
+            this.faixaAtual += 1;
+            bandeija[discoSelecionado].lerFaixa(faixaAtual);
+        }
+
     }
 
     public void voltar(){
-        if(ligado)
-            System.out.println("musica anterior");
+        if (ligado){
+            this.faixaAtual -= 1;
+            bandeija[discoSelecionado].lerFaixa(faixaAtual);
+        }
     }
 
     public String getModelo() {
